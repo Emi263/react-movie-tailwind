@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 function Movie({ title, poster, overview }) {
   return (
     <motion.div
-      initial={{ scale: 0.5 }}
+      initial={{ scale: 0.8 }}
       layout
       animate={{ scale: 1 }}
       className=" sm:mt-1 cursor-pointer shadow-lg p-5"

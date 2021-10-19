@@ -26,6 +26,12 @@ function Images({ id }) {
               />
             </div>
           ))}
+        {images == null ||
+          (images && images.length == 0 && (
+            <div className="text-center text-lg">
+              Sorry, no photos available for this movie :(
+            </div>
+          ))}
       </div>{" "}
     </>
   );

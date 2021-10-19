@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useData from "../Hooks/useData";
 import SingleMovie from "./SingleMovie";
 import { Link } from "react-router-dom";
 import Images from "./Images";
 import "boxicons";
+import { GlobalContext } from "../store/GlobalCtx";
 
 function MovieDetails() {
   const [singleMovie, setSingleMovie] = useState(null);
   const { id } = useParams();
-  const { data } = useData();
+  const { moviesState } = useContext(GlobalContext);
   useEffect(() => {
-    data && setSingleMovie(data.filter((dt) => dt.id == id));
-  }, [data]); //took a long time to solve it ffs, dependence=data
+    moviesState && setSingleMovie(moviesState.filter((dt) => dt.id == id));
+  }, [moviesState]); //took a long time to solve it ffs, dependence=data
   let movie = singleMovie && singleMovie[0];
   return (
     <div>
